@@ -10,14 +10,12 @@
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Conceptos de Venta</a></li>
+            <li><a href="{{ url('ConceptoVentas') }}">Conceptos de Venta</a></li>
             <li><a href="{{ url('prospecto') }}">Prospectos</a></li>
             <li><a href="{{ url('Cliente') }}">Clientes</a></li>
             <li><a href="{{ url('Cotizacion') }}">Cotizaciones</a></li>
             <li><a href="{{ url('perdidos') }}">Pedidos</a></li>
             <li><a href="{{ url('') }}">Captura Venta</a></li>
-            <li><a href="{{ url('PuntoVenta') }}">Puntos de Venta</a></li>
-            <li><a href="{{ url('') }}">Proyectos</a></li>
           </ul>
         </li>
       

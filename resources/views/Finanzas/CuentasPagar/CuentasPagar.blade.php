@@ -3,7 +3,7 @@
 
 <section class="content-header">
       <h1>
-        Cuentas Por Cobrar
+        Cuentas Por Pagar
         <small> </small>
       </h1>
       <ol class="breadcrumb">
@@ -21,7 +21,7 @@
               <li><a href="#tab_2" data-toggle="tab">Al Corriente</a></li>
               <li><a href="#tab_3" data-toggle="tab">Historico</a></li>
               
-              <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+              
             </ul>
             <div class="tab-content">
               <div class="tab-pane active" id="tab_1">
@@ -63,25 +63,20 @@
               <div class="tab-pane" id="tab_3">
 <div class="row">
   <form action="CuentasCobrar_submit" method="get" accept-charset="utf-8">
-                CuentasCobrar_submit
-                get
-                <div class="form-group col-md-2">
+                
+                <div class="form-group col-md-4">
                   <label>Numero</label>
                   <input type="text" class="form-control" placeholder="">
                 </div>
 
-                <div class="form-group col-md-2">
-                  <label>Cliente</label>
+                <div class="form-group col-md-4">
+                  <label>Proveedor</label>
                   <input type="text" class="form-control" placeholder="">
                 </div>
 
-                <div class="form-group col-md-2">
-                  <label>Palabra clave</label>
-                  <input type="text" class="form-control" placeholder="">
-                </div>
+               
 
-               <br>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-4">
                    <label for="exampleFormControlSelect1">Almacen</label>
                     <select class="form-control" id="exampleFormControlSelect1">
                       <option>1</option>
@@ -90,8 +85,8 @@
                       <option>4</option>
                       <option>5</option>
                     </select>
-                </div><div class="form-group col-md-2">
-                   <label for="exampleFormControlSelect1">Sucursal</label>
+                </div><div class="form-group col-md-4">
+                   <label for="exampleFormControlSelect1">Tipo documento</label>
                     <select class="form-control" id="exampleFormControlSelect1">
                       <option>1</option>
                       <option>2</option>
@@ -99,16 +94,7 @@
                       <option>4</option>
                       <option>5</option>
                     </select>
-                </div><div class="form-group col-md-2">
-                   <label for="exampleFormControlSelect1">Tipo de documento</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                </div><div class="form-group col-md-2">
+                </div><div class="form-group col-md-4">
                    <label for="exampleFormControlSelect1">Estatus</label>
                     <select class="form-control" id="exampleFormControlSelect1">
                       <option>1</option>
@@ -117,8 +103,9 @@
                       <option>4</option>
                       <option>5</option>
                     </select>
-                </div><div class="form-group col-md-2">
-                   <label for="exampleFormControlSelect1">Vendedor</label>
+                </div>
+                <div class="form-group col-md-4">
+                   <label for="exampleFormControlSelect1">Estatus</label>
                     <select class="form-control" id="exampleFormControlSelect1">
                       <option>1</option>
                       <option>2</option>
@@ -132,9 +119,28 @@
                   <input type="date" class="form-control" placeholder="">
                 </div>
                 <div class="form-group col-md-2">
-                   <label for="exampleFormControlSelect1">Fecha de Vencimiento</label>
+                   <label for="exampleFormControlSelect1"></label>
                     <input type="date" class="form-control" placeholder="">
                 </div> 
+                <div class="form-group col-md-2">
+                  <label for="exampleFormControlSelect1">Fecha de Emision</label>
+                  <input type="date" class="form-control" placeholder="">
+                </div>
+                <div class="form-group col-md-2">
+                   <label for="exampleFormControlSelect1"></label>
+                    <input type="date" class="form-control" placeholder="">
+                </div> 
+                <div class="form-group col-md-4">
+                   <label for="exampleFormControlSelect1">Sucursal</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                </div>
+
                 <div class="form-group col-md-2">
                    <label for="exampleFormControlSelect1">Palabra clave</label>
                     <input type="text" class="form-control" placeholder="">
@@ -152,85 +158,7 @@
           </div>
           <!-- nav-tabs-custom -->
         </div>
-        <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            
-          <div class="box">
-            
-            <!-- /.box-header -->
-            <div class="box-body">
-             <div class="col-md-12">
-              <div class="box box-primary">
-                <table class="table">
-                 <thead>
-                   <tr>
-                    <th class="">#</th>
-                    <th class="">Tipo de documento</th>
-                    <th class="">Fecha</th>
-                    <th class="">Cliente</th>
-                    <th class="">Sucursal</th>
-                    <th class="">Almacen</th>
-                    <th class="">Vencimiento</th>
-                    <th class="">Impuestos</th>
-                    <th class="">Total</th>
-                    <th class="">Pendiente</th>
-                    <th class="">Estatus</th>
-
-                    
-                     </tr>
-                      </thead>
-                       <tbody>        
-                      {{-- expr --}} 
-                        <tr>
-                          <td class=""></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          </tr>      
-                        </tbody>
-                      </table>
-            <!-- /.box -->
-          </div>
-          
-        </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
- 
-
-              
-     
-
-
- 
-<!-- page script -->
-<script>
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
-</script>
-
-
-</div></section>
+        
 
 
 

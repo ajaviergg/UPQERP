@@ -10,4 +10,8 @@ class FinanzasController extends Controller
     {
     	return view ('Finanzas.BancosCajas.finanzas');
     }
+    public function agregarBancos()
+    {
+    	return view ('Finanzas.BancosCajas.crearfinanzas');
+    }
 }

@@ -60,28 +60,12 @@ class EmpleadosController extends Controller
     	$empleado->curp = $request->input('curp');
     	$empleado->nss = $request->input('nss');
     	$empleado->fecha_inicio = $request->input('fecha_inicio');
-    	$empleado->fecha_nacimiento = $requeskt->input('fecha_nacimiento');
+    	$empleado->fecha_nacimiento = $request->input('fecha_nacimiento');
     	$empleado->sexo = $request->input('sexo');
     	$empleado->save();
 
-    	$ultimo = emp_empleado::all();
+    	$ultimo = emp_empleado::all()->last();
 
-    	return $ultimo->id->last();
-
-/*
-    	$contrac = new emp_contrato;
-    	$contrac->id_empleado = $request->$
-    	$contrac->id_puesto_riesgo = $request->input('id_puesto_riesgo');
-    	$contrac->id_pago = $request->input('id_pago');
-    	$contrac->id_pago_periodo = $request->input('id_pago_periodo');
-    	$contrac->id_contrato_regimen = $request->input('id_contrato_regimen');
-    	$contrac->id_puesto = $request->input('id_puesto');
-    	$contrac->id_departamento = $request->input('id_departamento');
-    	$contrac->salario_base_integrado = $request->input('salario_base_integrado');
-    	$contrac->salario_base = $request->input('salario_base');
-    	$contrac->id_contrato_tipo = $request->input('id_contrato_tipo');
-    	//$contrac->id_domicilio = $request->input('id_domicilio');
-    	$contrac->save();
 
     	$direccion = gen_direccion::all();
     	$direccion->localidad = $request->input('localidad');
@@ -92,6 +76,27 @@ class EmpleadosController extends Controller
     	$direccion->num_interior = $request->input('num_interior');
     	$direccion->referencia_1 = 'null';
     	$direccion->referencia = 'null';
-    	$direccion->save();*/
+    	$empleado->save();
+    	$direccion->save();
+/*
+    	$ultimodir = gen_direccion::all()->last();
+
+    	$contrac = new emp_contrato;
+    	$contrac->id_empleado = $request->$ultimo;
+    	$contrac->id_puesto_riesgo = $request->input('id_puesto_riesgo');
+    	$contrac->id_pago = $request->input('id_pago');
+    	$contrac->id_pago_periodo = $request->input('id_pago_periodo');
+    	$contrac->id_contrato_regimen = $request->input('id_contrato_regimen');
+    	$contrac->id_puesto = $request->input('id_puesto');
+    	$contrac->id_departamento = $request->input('id_departamento');
+    	$contrac->salario_base_integrado = $request->input('salario_base_integrado');
+    	$contrac->salario_base = $request->input('salario_base');
+    	$contrac->id_contrato_tipo = $request->input('id_contrato_tipo');
+    	$contrac->id_domicilio =$request->$ultimodir;
+    	$contrac->save();*/
+    	
+
+    	
+    	return back();
     }
 }

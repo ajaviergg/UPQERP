@@ -65,8 +65,12 @@ Route::middleware(['auth','admin'])->prefix('admin')->group(function (){
 	//termina produccion
 
 	//INICIA Ventas
+	//Concepto ventas
+	Route::get('/ConceptoVentas', 'ConceptoVentaController@MostrarVenta');
+	Route::get('/ConceptoVentas/agregar', 'ConceptoVentaController@agregarVenta');
 	//prospecto
 	Route::get('/prospecto', 'prospectoController@index');
+	Route::get('/prospecto/agregar', 'prospectoController@agregarprospecto');
 	//Cliente
 	Route::get('/Cliente', 'ClienteController@index');
 	//cotizacion
@@ -74,14 +78,21 @@ Route::middleware(['auth','admin'])->prefix('admin')->group(function (){
 
 	Route::get('/perdidos', 'PedidosController@index');
 	
-	Route::get('/PuntoVenta', 'PuntoVentaController@index');
+	
 	//termina ventas
 	
 	//INICIA finanzas
 	Route::get('/BancosCajas', 'FinanzasController@index');
+	Route::get('/BancosCajas/agregar', 'FinanzasController@agregarBancos');
 	Route::get('/Conciliaciones', 'ConciliacionesController@index');
+	Route::get('/Conciliaciones/agregar', 'ConciliacionesController@index');
 	Route::get('/CuentasCobrar', 'CuentasCobrarController@index');
-
+	Route::get('/CuentasPorPagar', 'CuentasPagarController@indexCuentaPagar');
+	Route::get('/Ingresos', 'IngresosController@indexIngresos');
+	Route::get('/Ingresos/agregar', 'IngresosController@agregarIngresos');
+	Route::get('/Egresos', 'EgresosController@MostrarEgresos');
+	Route::get('/Egresos/PagosGastos', 'EgresosController@agregarPagos');
+	Route::get('/Egresos/PagosCostos', 'EgresosController@agregarGastos');
 	//INICIA INVENTARIOS
 	Route::get('/Inventarios/Lista', 'stockStoreController@BuscarAlmacen');
 	Route::get('/Inventarios/Lista/agregar', 'stockStoreController@agregarAlmacen');

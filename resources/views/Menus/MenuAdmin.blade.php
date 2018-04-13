@@ -47,14 +47,13 @@
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Conceptos de Venta</a></li>
+            <li><a href="{{ url('admin/ConceptoVentas') }}">Conceptos de Venta</a></li>
             <li><a href="{{ url('admin/prospecto') }}">Prospectos</a></li>
             <li><a href="{{ url('admin/Cliente') }}">Clientes</a></li>
             <li><a href="{{ url('admin/Cotizacion') }}">Cotizaciones</a></li>
             <li><a href="{{ url('admin/perdidos') }}">Pedidos</a></li>
-            {{--<li><a href="{{ url('') }}">Captura Venta</a></li>--}}
-            <li><a href="{{ url('admin/PuntoVenta') }}">Puntos de Venta</a></li>
-            {{--<li><a href="{{ url('') }}">Proyectos</a></li>--}}
+            <li><a href="{{ url('') }}">Captura Venta</a></li>
+            
           </ul>
         </li>
 
@@ -69,9 +68,9 @@
             <li><a href="{{ url('admin/BancosCajas') }}">Banco y Cajas</a></li>
             <li><a href="{{ url('admin/Conciliaciones') }}">Concilaciones</a></li>
             <li><a href="{{ url('admin/CuentasCobrar') }}">Cuentas Por Cobrar</a></li>
-            {{--<li><a href="{{ url('') }}">Cuentas Por Pagar</a></li>
-            <li><a href="{{ url('') }}">Ingresos</a></li>
-            <li><a href="{{ url('') }}">Egresos</a></li>--}}
+            <li><a href="{{ url('admin/CuentasPorPagar') }}">Cuentas Por Pagar</a></li>
+            <li><a href="{{ url('admin/Ingresos') }}">Ingresos</a></li>
+            <li><a href="{{ url('admin/Egresos') }}">Egresos</a></li>
           </ul>
         </li>
 

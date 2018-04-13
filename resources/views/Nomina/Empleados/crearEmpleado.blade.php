@@ -2,8 +2,7 @@
 @section('content')
 <section class="content-header">
       <h1>
-        Agregar Fórmula de Producción 
-      </h1>
+        Agregar Empleado      </h1>
       
     </section>
 <section class="content-header">
@@ -14,269 +13,219 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Detalles
+              <h3 class="box-title">Agregar Empleado
 </h3>
             </div>
             <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form">
+            <!-- form start 	-->
+            <form role="form" action="{{ url('admin/agregar/Empleado') }}" method="post" enctype="multipart/form-data">
+              {{ csrf_field() }}
               <div class="box-body">
                 
-                <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Codigo:</label>
-                  <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Numero">
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Num. Empleado	:</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="numero">
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Titulo:</label>
-                  <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Numero">
+                <div class="form-group col-md-3">
+                  <label for="exampleInputEmail1">Email:</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="correo">
                 </div>
-                <div class="form-group col-md-6">
-                   <label for="exampleFormControlSelect1">Costp Inicial:</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
+                <div class="form-group col-md-3">
+                   <label for="exampleFormControlSelect1"> Nombre:</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="nombre">
                 </div>
-                <div class="form-group col-md-6">
-                   <label for="exampleFormControlSelect1">Costeo:</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
+                <div class="form-group col-md-2">
+                   <label for="exampleFormControlSelect1">Apellido Paterno:</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="apellido_paterno">
                 </div>
                 
                <div class="form-group col-md-2">
-                   <label for="exampleFormControlSelect1">Moneda:</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                   <label for="exampleFormControlSelect1">Apellido Materno:</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="apellido_materno">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="exampleInputEmail1">Fecha inicio relacion laboral:</label>
+                  <input type="date" class="form-control" id="exampleInputEmail1" placeholder="" name="fecha_inicio">
+                </div>
+                <div class="form-group col-md-2">
+                   <label for="exampleFormControlSelect1">RFC:</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="rfc">
+                </div>
+                <div class="form-group col-md-2">
+                   <label for="exampleFormControlSelect1">CURP:</label>
+                   <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="curp">
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Numero de seguro social:</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="nss">
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Tipo de Jornada:</label>
+                  <select class="form-control" id="exampleFormControlSelect1">
+                  	<option value="">-- Seleccione --</option>
+                      @foreach ($jornada as $jornadas)
+				  	<option value="{{ $jornadas['id'] }}">{{ $jornadas['descripcion'] }}</option>
+				  @endforeach
                     </select>
                 </div>
                 <div class="form-group col-md-2">
-                  <label for="exampleInputEmail1">Unidad de Medida</label>
-                  <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Numero">
+                  <label for="exampleInputEmail1">Fecha de Nacimiento:</label>
+                 <input type="date" class="form-control" id="exampleInputEmail1" placeholder="" name="fecha_nacimiento">
                 </div>
                 <div class="form-group col-md-2">
-                   <label for="exampleFormControlSelect1">Tipo::</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                  <label for="exampleInputEmail1">Sexo:</label>
+                  <select class="form-control" id="exampleFormControlSelect1" name="sexo">
+                       <option value="M">Masculino</option>
+				  <option value="F">Femenino</option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
-                   <label for="exampleFormControlSelect1">Descripcion:</label>
-                   <textarea name=""></textarea>
+                  <label for="exampleInputEmail1">Régimen de contratación:</label>
+                  <select class="form-control" id="exampleFormControlSelect1" name="id_contrato_regimen">
+                  	<option value="">-- Seleccione --</option>
+                     @foreach ($regimen as $regime)
+				  	<option value="{{ $regime['id'] }}">{{ $regime['descripcion'] }}</option>
+				  @endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Riesgo Puesto:</label>
+                  <select class="form-control" id="exampleFormControlSelect1" name="id_puesto_riesgo">
+                      <option value="">-- Seleccione --</option>
+				  @foreach ($riesgo as $riesgos)
+				  	<option value="{{ $riesgos['id'] }}">{{ $riesgos['descripcion'] }}</option>
+				  @endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Puesto:</label>
+                  <select class="form-control" id="exampleFormControlSelect1" name="id_puesto">
+                      <option value="">-- Seleccione --</option>
+				  @foreach ($puesto as $puestos)
+				  	<option value="{{ $puestos['id'] }}">{{ $puestos['descripcion'] }}</option>
+				  @endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Banco:</label>
+                  <select class="form-control" id="exampleFormControlSelect1" name="">
+                      <option value="">-- Seleccione --</option>
+					@foreach ($banco as $bancos)
+						<option value="{{ $bancos['id'] }}">{{ $bancos{'descripcion'} }}</option>
+					@endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Departamento:</label>
+                  <select class="form-control" id="exampleFormControlSelect1" name="id_departamento">
+                     <option value="">-- Seleccione --</option>
+					@foreach ($departamento as $departamentos)
+						<option value="{{ $departamentos{'id'} }}">{{ $departamentos['descripcion'] }}</option>
+					@endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Periodicidad de Pago:</label>
+                  <select class="form-control" id="exampleFormControlSelect1" name="id_pago_periodo">
+                     <option value="">-- Seleccione --</option>
+					@foreach ($periodo as $periodos)
+						<option value="{{ $periodos['id'] }}">{{ $periodos['descripcion'] }}</option>
+					@endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">No. de Cuenta:</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Salario Base	:</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="salario_base">
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Salario Diario integrado:</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="salario_base_integrado">
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Tipo Contrato:</label>
+                   <select class="form-control" id="exampleFormControlSelect1" name="id_contrato_tipo">
+                     <option value="">---Seleccione-----</option>
+					@foreach ($contrato as $contratos)
+						<option value="{{ $contratos['id'] }}">{{ $contratos['descripcion'] }}</option>
+					@endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Método de Pago::</label>
+                   <select class="form-control" id="exampleFormControlSelect1" name="id_pago">
+                     @foreach ($pago as $pagos)
+				  		<option value="{{ $pagos['id'] }}">{{ $pagos['descripcion'] }}</option>
+				  	@endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">No. de Cuenta::</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="exampleInputEmail1">Dirección:</label>
+                 
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">País:</label>
+                   <select class="form-control" id="exampleFormControlSelect1" name="">
+                     <option selected="selected" value="">---Seleccione---</option>
+							  	@foreach ($pais as $paises)
+							  		<option selected="selected" value="{{ $paises['id'] }}">{{ $paises['nombre'] }}</option>
+							  	@endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Estado:</label>
+                   <select class="form-control" id="exampleFormControlSelect1" name="Estados_id">
+                    @foreach ($estado as $estados)
+							  		<option  value="{{ $estados['id'] }}">{{ $estados['nombre'] }}</option>
+							  	@endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Municipio:</label>
+                   <select class="form-control" id="exampleFormControlSelect1" name="id_pago">
+                     @foreach ($Municipio as $Municipios)
+							  		<option  value="{{ $Municipios['id'] }}">{{ $Municipios['nombre'] }}</option>
+							  	@endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Localidad:</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="localidad">
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Calle::</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="calle">
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Colonia:</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="colonia">
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Código Postal:</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="cod_postal">
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">No. Exterior:</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="num_exterior">
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">>No. Interior:</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="num_interior">
                 </div>
               </div>
              
               <!-- /.box-body -->
 
-              <div class="box-header with-border">
-              <h3 class="box-title">Datos Opcionales
-</h3>
-            </div>
-
-            <div class="box-body">
-                <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">SKU:</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="exampleInputEmail1">Tiempo de surtido (dias):</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                </div>
-                <div class="form-group col-md-6">
-                   <label for="exampleFormControlSelect1">Volumen:</label>
-                   <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                </div>
-                <div class="form-group col-md-6">
-                   <label for="exampleFormControlSelect1">Peso:</label>
-                   <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                </div>
-                
-               <div class="form-group col-md-2">
-                   <label for="exampleFormControlSelect1">I.V.A:</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-2">
-                  <label for="exampleInputEmail1">Unidad de Medida</label>
-                  <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Numero">
-                </div>
-                <div class="form-group col-md-2">
-                   <label for="exampleFormControlSelect1">Tipo de Compras:</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                </div>
-               <div class="form-group col-md-2">
-                   <label for="exampleFormControlSelect1">Categorias 1:</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-2">
-                   <label for="exampleFormControlSelect1">Categorias 2:</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-2">
-                   <label for="exampleFormControlSelect1">Categorias 3:</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                </div>
-              </div>
-              <div class="box-header with-border">
-              <h3 class="box-title">Precios
-</h3>
-            </div>
-
-            <div class="box-body">
-               <div class="tab-pane active" id="navbar-fixed-docs">
-        <table style="width: 100%;">
-          <tbody><tr>
-            <td colspan="4">
-              <div class="alert alert-info">
-                <span id="ContentPlaceHolder1_PricingInfo">Especifica el precio del producto para cada una de las listas de precios de la empresa. El precio se puede definir como un monto fijo o un margen en base al costo del producto.</span>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td class="tdTitle" colspan="4">Estrategia de precios:
-        <select name="ctl00$ContentPlaceHolder1$PriceDDL" onchange="Page_BlockSubmit = false;setTimeout('__doPostBack(\'ctl00$ContentPlaceHolder1$PriceDDL\',\'\')', 0)" id="ContentPlaceHolder1_PriceDDL" style="width:150px;">
-  <option selected="selected" value="0">Listas</option>
-  <option value="1">Volumen</option>
-
-</select>
-              &nbsp;
-        &nbsp;
-        Tipo:
-        <select name="ctl00$ContentPlaceHolder1$PriceTypeDDL" onchange="Page_BlockSubmit = false;setTimeout('__doPostBack(\'ctl00$ContentPlaceHolder1$PriceTypeDDL\',\'\')', 0)" id="ContentPlaceHolder1_PriceTypeDDL" style="width:150px;">
-  <option value="0">Monto</option>
-  <option selected="selected" value="1">Margén</option>
-
-</select>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2" valign="top">
-              <table width="300" class="table table-striped">
-                
-                    <tbody><tr style="background-color: #EBEBEB; color: #000000">
-                      <td>Nombre</td>
-                      <td>Valor</td>
-                    </tr>
-                  
-                    <tr>
-                      <td>
-                        <input type="hidden" name="ctl00$ContentPlaceHolder1$PriceListRP$ctl01$IDField" id="ContentPlaceHolder1_PriceListRP_IDField_0" value="77d7e34f-968c-4bf1-b55b-cd9b0c87a7c5">
-                        A</td>
-                      <td>
-                        <input name="ctl00$ContentPlaceHolder1$PriceListRP$ctl01$ValueField" type="text" id="ContentPlaceHolder1_PriceListRP_ValueField_0" style="width:100px;">
-                        <span id="ContentPlaceHolder1_PriceListRP_RequiredFieldValidator8_0" style="color:Red;visibility:hidden;">*</span>
-                        <span id="ContentPlaceHolder1_PriceListRP_CompareValidator1_0" style="color:Red;visibility:hidden;">&gt;= 0</span>
-
-                      </td>
-                    </tr>
-                  
-              </tbody></table>
-              
-            </td>
-            <td></td>
-            <td>&nbsp;
-            </td>
-          </tr>
-
-          
-        </tbody></table>
-      </div>
-              </div>
-              <div class="box-header with-border">
-              <h3 class="box-title">Almacenes
-</h3>
-            </div>
-            <div class="box-body">
-                
-                <table style="width: 100%;">
-          <tbody><tr>
-            <td colspan="4">
-              <div class="alert alert-info">
-                Especifica cantidades mínimas, máximos, inventario inicial y la ubicación del producto para cada uno de los almacenes.
-              </div>
-              <div>
-  <table class="table table-striped" cellspacing="0" id="ContentPlaceHolder1_GVWarehouses" style="width:100%;border-collapse:collapse;">
-    <tbody><tr style="color:Black;font-weight:bold;">
-      <th scope="col">Almacén</th><th scope="col">Minimo</th><th scope="col">Máximo</th><th scope="col">Inventario Inicial</th><th scope="col">Ubicación</th><th scope="col">Visible</th>
-    </tr><tr class="DataRow">
-      <td>
-                      <span id="ContentPlaceHolder1_GVWarehouses_lblName_0">Matriz</span>
-                    </td><td>
-                      <input name="ctl00$ContentPlaceHolder1$GVWarehouses$ctl02$txtMin" type="text" value="0" id="ContentPlaceHolder1_GVWarehouses_txtMin_0">
-                      <span id="ContentPlaceHolder1_GVWarehouses_RequiredFieldValidator81_0" style="color:Red;visibility:hidden;">*</span>
-                      <span id="ContentPlaceHolder1_GVWarehouses_CompareValidator1b_0" style="color:Red;visibility:hidden;">&gt;= 0</span>
-                    </td><td>
-                      <input name="ctl00$ContentPlaceHolder1$GVWarehouses$ctl02$txtMax" type="text" value="0" id="ContentPlaceHolder1_GVWarehouses_txtMax_0">
-                      <span id="ContentPlaceHolder1_GVWarehouses_RequiredFieldValidator82_0" style="color:Red;visibility:hidden;">*</span>
-                      <span id="ContentPlaceHolder1_GVWarehouses_CompareValidator1a_0" style="color:Red;visibility:hidden;">&gt;= 0</span>
-                    </td><td>
-                      <input name="ctl00$ContentPlaceHolder1$GVWarehouses$ctl02$txtInitQty" type="text" value="0" id="ContentPlaceHolder1_GVWarehouses_txtInitQty_0">
-                      <span id="ContentPlaceHolder1_GVWarehouses_RequiredFieldValidator8_0" style="color:Red;visibility:hidden;">*</span>
-                      <span id="ContentPlaceHolder1_GVWarehouses_CompareValidator1_0" style="color:Red;visibility:hidden;">&gt;= 0</span>
-                    </td><td>
-                      <input name="ctl00$ContentPlaceHolder1$GVWarehouses$ctl02$txtLoc" type="text" value="0" id="ContentPlaceHolder1_GVWarehouses_txtLoc_0">
-                    </td><td>
-                      <input id="ContentPlaceHolder1_GVWarehouses_VisibleCB_0" type="checkbox" name="ctl00$ContentPlaceHolder1$GVWarehouses$ctl02$VisibleCB" checked="checked">
-                    </td>
-    </tr><tr>
-      <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-    </tr>
-  </tbody></table>
-</div>
-            </td>
-          </tr>
-          
-        </tbody></table>
-              </div>
-
-
               <div class="box-footer">
                 <br>
-                <button type="submit" class="btn btn-primary">Siguiente</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
               </div>
             </form>
           </div>
