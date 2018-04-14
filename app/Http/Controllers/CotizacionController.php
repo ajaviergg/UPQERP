@@ -10,4 +10,8 @@ class CotizacionController extends Controller
     {
     	return view('Ventas.Cotizaciones.cotizacion');
     }
+    public function AgregarCotizacion()
+    {
+    	return view('Ventas.Cotizaciones.agregarCotizacion');
+    }
 }

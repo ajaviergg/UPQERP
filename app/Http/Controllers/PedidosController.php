@@ -10,4 +10,8 @@ class PedidosController extends Controller
     {
     	return view('Ventas.Pedidos.pedidos');
     }
+    public function agregarPedidos()
+    {
+    	return view('Ventas.Pedidos.agregarPedidos');
+    }
 }

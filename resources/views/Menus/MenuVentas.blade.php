@@ -15,7 +15,7 @@
             <li><a href="{{ url('Cliente') }}">Clientes</a></li>
             <li><a href="{{ url('Cotizacion') }}">Cotizaciones</a></li>
             <li><a href="{{ url('perdidos') }}">Pedidos</a></li>
-            <li><a href="{{ url('') }}">Captura Venta</a></li>
+            {{-- <li><a href="{{ url('') }}">Captura Venta</a></li> --}}
           </ul>
         </li>
       

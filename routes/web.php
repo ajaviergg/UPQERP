@@ -73,11 +73,13 @@ Route::middleware(['auth','admin'])->prefix('admin')->group(function (){
 	Route::get('/prospecto/agregar', 'prospectoController@agregarprospecto');
 	//Cliente
 	Route::get('/Cliente', 'ClienteController@index');
+	Route::get('/Cliente/agregar', 'ClienteController@agregarCliente');
 	//cotizacion
 	Route::get('/Cotizacion', 'CotizacionController@index');
+	Route::get('/Cotizacion/agregar', 'CotizacionController@AgregarCotizacion');
 
 	Route::get('/perdidos', 'PedidosController@index');
-	
+	Route::get('/perdidos/agregar', 'PedidosController@agregarPedidos');
 	
 	//termina ventas
 	

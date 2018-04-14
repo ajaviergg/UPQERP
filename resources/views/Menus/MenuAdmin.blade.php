@@ -52,14 +52,14 @@
             <li><a href="{{ url('admin/Cliente') }}">Clientes</a></li>
             <li><a href="{{ url('admin/Cotizacion') }}">Cotizaciones</a></li>
             <li><a href="{{ url('admin/perdidos') }}">Pedidos</a></li>
-            <li><a href="{{ url('') }}">Captura Venta</a></li>
+            {{-- <li><a href="{{ url('') }}">Captura Venta</a></li> --}}
             
           </ul>
         </li>
 
         <li class="treeview">
           <a href="#"><i class="menu-icon fa fa-dollar"></i> 
-            <span>Finazas</span>
+            <span>Finanzas</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>

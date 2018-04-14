@@ -25,7 +25,7 @@
                 @if (Auth()->user()->rol_id==1)
                    <a href="{{ url('admin/ConceptoVentas/agregar') }}" class="btn btn-primary btn-round col-md-2" style="left: 570px;" target0><i class="fa fa-2x fa-plus"></i><span class="nav-label ng-binding"><br>Nueva</span> </a>
                 @endif
-                 @if (Auth()->user()->rol_id==5)
+                 @if (Auth()->user()->rol_id==2)
                     <a href="{{ url('/ConceptoVentas/agregar') }}" class="btn btn-primary btn-round col-md-2" style="left: 570px;" target0><i class="fa fa-2x fa-plus"></i><span class="nav-label ng-binding"><br>Nueva</span> </a>
                     @endif
               </div>

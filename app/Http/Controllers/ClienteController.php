@@ -10,4 +10,8 @@ class ClienteController extends Controller
     {
     	return view('Ventas.cliente.cliente');
     }
+    public function agregarCliente()
+    {
+    	return view('Ventas.cliente.agregarCliente');
+    }
 }
