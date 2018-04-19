@@ -15,7 +15,7 @@
             
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <form role="form" action="{{ action('FinanzasController@agregarCuenta') }}">
               <div class="box-body">
                 <div class="form-group col-md-4">
                    <label for="exampleFormControlSelect1">Tipo:</label>
