@@ -103,9 +103,21 @@ Route::middleware(['auth','admin'])->prefix('admin')->group(function (){
 	//Trermina aprovisionamiento
 	
 	//INICIA Nomina
+	Route::get('/buscar/Empleado', 'EmpleadosController@buscar');
 	Route::get('/lista/Empleado', 'EmpleadosController@indexEmpleado');
+
 	Route::get('/agregar/Empleado', 'EmpleadosController@crearEmpleado');
 	Route::post('/agregar/Empleado', 'EmpleadosController@create');
+	Route::get('/editar/{id}/Empleado', 'EmpleadosController@editEmpleados');
+	//Route::post('/editar/{id}/Empleado', 'EmpleadosController@create');
+
+	Route::get('/agregar/Empleado/Direccion', 'EmpleadosController@indexDireccion');
+	Route::post('/agregar/Empleado/Direccion', 'EmpleadosController@agregarDireccion');
+	Route::get('/editar/Direccion', 'EmpleadosController@editDireccion');
+	//Route::post('/editar/{id}/Direccion', 'EmpleadosController@editDireccion');
+
+	Route::get('/agregar/Empleado/Contrato', 'EmpleadosController@indexContrato');
+	Route::post('/agregar/Empleado/Contrato', 'EmpleadosController@agregarContrato');
 	//Termina Nomina
 });
 //Termina rutas de administador
