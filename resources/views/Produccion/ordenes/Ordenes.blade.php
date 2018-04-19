@@ -2,7 +2,7 @@
 @section('content')
 <section class="content-header">
       <h1>
-        Ordenes de Produccion 
+        Ordenes de Produccion
       </h1>
       <div class="input-group input-group-sm col-md-6" style="position: absolute;right: 9%;top: 12%;">
                 @if (Auth()->user()->rol_id==1)
@@ -21,96 +21,26 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Agregar Usuarios</h3>
+              <h3 class="box-title">Ordenes de Produccion</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <form  method="get" action="{{ url('admin/Nueva/show') }}" enctype="multipart/form-data">
               <div class="box-body">
-                <div class="form-group col-md-2">
-                  <label for="exampleInputEmail1">Numero</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Numero">
-                </div>
+
                 <div class="form-group col-md-2">
                    <label for="exampleFormControlSelect1">Producto</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                    <select class="form-control" id="exampleFormControlSelect1" name="exampleFormControlSelect1">
+                      @foreach($producto as $value)
+                        <option value="{{$value->id}}">{{$value->titulo}}</option>
+                      @endforeach
                     </select>
                 </div>
-                <div class="form-group col-md-2">
-                   <label for="exampleFormControlSelect1">Almacen</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-2">
-                   <label for="exampleFormControlSelect1">Estatus</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                  <label for="exampleFormControlSelect1">Fecha de Creacion</label>
-            <div class="form-group">
-                <div class="input-group date" id="datetimepicker1">
-                    <input type="text" class="form-control" placeholder="Desde">
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        
-            <div class="col-md-2">
-                  <label for="exampleFormControlSelect1"></label>
-            <div class="form-group">
-                <div class="input-group date" id="datetimepicker1">
-                    <input type="text" class="form-control" placeholder="Desde">
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-       
+
+
+
 
               </div>
-              <div class="col-md-2">
-                  <label for="exampleFormControlSelect1">Fecha de Produccion</label>
-            <div class="form-group">
-                <div class="input-group date" id="datetimepicker1">
-                    <input type="text" class="form-control" placeholder="Desde">
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-2">
-                  <label for="exampleFormControlSelect1"></label>
-            <div class="form-group">
-                <div class="input-group date" id="datetimepicker1">
-                    <input type="text" class="form-control" placeholder="Desde">
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        
               <!-- /.box-body -->
 
               <div class="box-footer">
@@ -125,48 +55,43 @@
                 <table class="table">
                  <thead>
                    <tr>
-                    <th class="text-center">#</th>
-                    <th class="col-md-2 text-center">Nombre</th>
-                    <th class="col-md-5 text-center">Correo Electronico</th>
-                    <th class="text-center">Tipo de Usuario</th>
-                    <th class="text-center">foto</th>
+                    <th >#</th>
+                    <th >Almacen Fuente</th>
+                    <th >Cantidad</th>
+                    <th >Producto</th>
+                    <th >Formula</th>
                     <th class="text-right" style="right: 2%;position: absolute;">Opciones</th>
                      </tr>
                       </thead>
-                       <tbody>       
+                       <tbody>
+                @foreach($orden as $value)
                         <tr>
-                          <td class="text-center"></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+                          <td>{{ $value->id }}</td>
+                          <td>{{ $value->nombre }}</td>
+                          <td>{{ $value->cantidad }}</td>
+                          <td>{{ $value->titulo }}</td>
+                          <td>{{ $value->formula }}</td>
                           <td class="text-right"></td>
-                          <td class="td-actions text-right">             
-                            <form action="" method="POST">
-                              <a type="button" rel="tooltip" title="Ver producto" class="btn btn-info btn-simple btn-xs">
-                                <i class="fa fa-info"></i>
-                                  </a>
-                                   <a href="" rel="tooltip" title="Editar producto" class="btn btn-success btn-simple btn-xs">
-                                    <i class="fa fa-edit"></i>
-                                  </a>
-                                  <a href="" rel="tooltip" title="Imagen del producto" class="btn btn-warning btn-simple btn-xs">
-                                    <i class="fa fa-image"></i>
-                                  </a>
+                          <td class="td-actions text-right">
+                            <form action="{{ url('admin/Nueva/Eliminar') }}" method="get" enctype="multipart/form-data">
+                                  <input type="hidden" name="key" value="{{ $value->id }}">
                                   <button type="submit" rel="tooltip" title="Eliminar" class="btn btn-danger btn-simple btn-xs">
                                     <i class="fa fa-times"></i>
-                                  </button>    
-                            </form>            
+                                  </button>
+                            </form>
                             </td>
-                          </tr>      
+                          </tr>
+                    @endforeach
                         </tbody>
                       </table>
             <!-- /.box -->
           </div>
         </div>
         <!-- /.col -->
-      </div> 
+      </div>
 
           <!-- Form Element sizes -->
-          
+
       <!-- /.row -->
     </div></div></section>
 @endsection

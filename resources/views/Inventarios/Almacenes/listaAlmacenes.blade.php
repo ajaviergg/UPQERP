@@ -2,7 +2,7 @@
 @section('content')
  <section class="content-header">
       <h1>
-        Almacenes 
+        Almacenes
       </h1>
       <div class="input-group input-group-sm col-md-6" style="position: absolute;right: 9%;top: 12%;">
                 @if (Auth()->user()->rol_id==1)
@@ -26,32 +26,24 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <form method="get" action="{{ url('admin/Inventarios/show') }}" enctype="multipart/form-data">
               <div class="box-body">
-                <div class="form-group col-md-2">
-                  <label for="exampleInputEmail1">Numero</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                </div>
-                <div class="form-group col-md-2">
-                  <label for="exampleInputEmail1">Nombre</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                </div>
+
+
                 <div class="form-group col-md-2">
                    <label for="exampleFormControlSelect1">Sucursal</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                    <select class="form-control" id="exampleFormControlSelect1" name="exampleFormControlSelect1">
+                      @foreach($sucursal as $value)
+                        <option value="{{$value->id}}">{{$value->nombre}}</option>
+                      @endforeach
                     </select>
                 </div>
 
               </div>
-              
-        
-        
-        
+
+
+
+
               <!-- /.box-body -->
 
               <div class="box-footer">
@@ -66,44 +58,43 @@
                 <table class="table">
                  <thead>
                    <tr>
-                    <th class="text-center">#</th>
-                    <th class="col-md-2 text-center">Nombre</th>
-                    <th class="col-md-5 text-center">Sucursal</th>
-                    <th class="text-center">Multi-Sucursal</th>
-                    <th class="text-center">Existencia publica</th>
+                    <th >#</th>
+                    <th>Nombre</th>
+                    <th >Sucursal</th>
+                    <th>Multi-Sucursal</th>
+                    <th >Existencia publica</th>
                     <th class="text-right" style="right: 2%;position: absolute;">Opciones</th>
                      </tr>
                       </thead>
-                       <tbody>       
+                       <tbody>
+                 @foreach($orden as $value)
                         <tr>
-                          <td class="text-center"></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+                          <td >{{ $value->id }}</td>
+                          <td>{{ $value->nombre }}</td>
+                          <td>{{ $value->sucu }}</td>
+                          <td>{{ $value->multisucursal }}</td>
+                          <td>{{ $value->existencia_publica }}</td>
                           <td class="text-right"></td>
-                          <td class="td-actions text-right">             
-                            <form action="" method="POST">
-                              
-                                   <a href="" rel="tooltip" title="Editar producto" class="btn btn-success btn-simple btn-xs">
-                                    <i class="fa fa-edit"></i>
-                                  </a>
-
+                          <td class="td-actions text-right">
+                            <form action="{{ url('admin/Inventarios/delete') }}" method="get" enctype="multipart/form-data" >
+                              <input type="hidden" name="key" value="{{ $value->id }}">
                                   <button type="submit" rel="tooltip" title="Eliminar" class="btn btn-danger btn-simple btn-xs">
                                     <i class="fa fa-times"></i>
-                                  </button>    
-                            </form>            
+                                  </button>
+                            </form>
                             </td>
-                          </tr>      
+                          </tr>
+                      @endforeach
                         </tbody>
                       </table>
             <!-- /.box -->
           </div>
         </div>
         <!-- /.col -->
-      </div> 
+      </div>
 
           <!-- Form Element sizes -->
-          
+
       <!-- /.row -->
     </div></div></section>
     	@endsection

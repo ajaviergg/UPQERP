@@ -23,13 +23,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //Route::group(['middleware' => 'auth'], function () {
-    
+
       /*
-      | 
+      |
       |Rutas con sesión
       |
-      */    
-    
+      */
+
 //});
 // Rutas de administrador
 Route::middleware(['auth','admin'])->prefix('admin')->group(function (){
@@ -52,16 +52,24 @@ Route::middleware(['auth','admin'])->prefix('admin')->group(function (){
 	Route::get('/Compra/Gastos', 'saleExpensesController@buscarGastos');
 	Route::get('/Compra/Gastos/Agregar', 'saleExpensesController@agregarGastos');
 	//editar si es necesario
-	
+
 
 
 	//INICIA Produccion
 	//formulas
 	Route::get('/formulas', 'FormulasController@index');
 	Route::get('/create', 'FormulasController@create');
-	
+
 	Route::get('/Busqueda/Ordenes', 'OrdenesController@indexOrdenes');
 	Route::get('/Nueva/Ordenes', 'OrdenesController@create');
+  Route::post('/Busqueda/Ordenes', [
+   'as'=>'registrarOrden.uno',
+   'uses'=>'OrdenesController@store'
+]);
+Route::get('/Nueva/Eliminar', 'OrdenesController@destroy');
+Route::get('/Nueva/show', 'OrdenesController@show');
+
+
 	//termina produccion
 
 	//INICIA Ventas
@@ -73,10 +81,10 @@ Route::middleware(['auth','admin'])->prefix('admin')->group(function (){
 	Route::get('/Cotizacion', 'CotizacionController@index');
 
 	Route::get('/perdidos', 'PedidosController@index');
-	
+
 	Route::get('/PuntoVenta', 'PuntoVentaController@index');
 	//termina ventas
-	
+
 	//INICIA finanzas
 	Route::get('/BancosCajas', 'FinanzasController@index');
 	Route::get('/Conciliaciones', 'ConciliacionesController@index');
@@ -85,10 +93,20 @@ Route::middleware(['auth','admin'])->prefix('admin')->group(function (){
 	//INICIA INVENTARIOS
 	Route::get('/Inventarios/Lista', 'stockStoreController@BuscarAlmacen');
 	Route::get('/Inventarios/Lista/agregar', 'stockStoreController@agregarAlmacen');
+  Route::get('/Inventarios', 'stockStoreController@store');
+  Route::get('/Inventarios/delete', 'stockStoreController@destroy');
+  Route::get('/Inventarios/show', 'stockStoreController@show');
+
 	Route::get('/Inventarios/Recepcion', 'stockReceptionController@buscarRecepcion');
-	Route::get('/Inventarios/Recepcion/agregar', 'stockReceptionController@agregarRecepcion');
+	Route::get('/Inventarios/Recepcion/agregar', 'stockReceptionController@buscarRecepcion');
+
+  /*Route::post('/Inventarios/Lista/registrarAlmacen', [
+   'as'=>'registrarAlmacen.dos',
+   'uses'=>'stockStoreController@store'
+]);*/
+
 	//Trermina aprovisionamiento
-	
+
 	//INICIA Nomina
 	Route::get('/lista/Empleado', 'EmpleadosController@indexEmpleado');
 	Route::get('/agregar/Empleado', 'EmpleadosController@crearEmpleado');
@@ -118,6 +136,7 @@ Route::middleware(['auth','production'])->group(function (){
 	Route::get('/Busqueda/Ordenes', 'OrdenesController@indexOrdenes');
 	Route::get('/Nueva/Ordenes', 'OrdenesController@create');
 
+
 });
 //Termina Rutas de Produccion
 
@@ -127,6 +146,7 @@ Route::middleware(['auth','Provisioning'])->group(function (){
 	Route::get('/Inventarios/Lista/agregar', 'stockStoreController@agregarAlmacen');
 	Route::get('/Inventarios/Recepcion', 'stockReceptionController@buscarRecepcion');
 	Route::get('/Inventarios/Recepcion/agregar', 'stockReceptionController@agregarRecepcion');
+
 });
 //Termina Rutas de INVENTARIOS
 
@@ -141,7 +161,7 @@ Route::middleware(['auth','sale'])->group(function (){
 	Route::get('/Cotizacion', 'CotizacionController@index');
 
 	Route::get('/perdidos', 'PedidosController@index');
-	
+
 	Route::get('/PuntoVenta', 'PuntoVentaController@index');
 });
 //Termina Rutas de Ventas
@@ -158,7 +178,7 @@ Route::middleware(['auth','finance'])->group(function (){
 
 
 
-//Rutas de Nomina 
+//Rutas de Nomina
 Route::middleware(['auth','RH'])->group(function (){
 	Route::get('/lista/Empleado', 'EmpleadosController@indexEmpleado');
 	Route::get('/agregar/Empleado', 'EmpleadosController@crearEmpleado');

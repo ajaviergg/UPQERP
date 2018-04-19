@@ -42,7 +42,7 @@ class EmpleadosController extends Controller
     	$departamento = gen_departamento::all();
     	$pago = gen_pago_metodo::all();
     	//$idestado = $request->input('Estados_id');
-    	
+
     	//$Municipio = DB::table('gen_domicilio_municipio')->where('id_estado', $idestado)->exists();
     	//return  $idestado;
     	return view('Nomina.Empleados.crearEmpleado', compact('jornada','regimen','puesto','riesgo','periodo','contrato','pais','estado','Municipio', 'banco','departamento','pago'));
