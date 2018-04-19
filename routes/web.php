@@ -86,6 +86,7 @@ Route::middleware(['auth','admin'])->prefix('admin')->group(function (){
 	//INICIA finanzas
 	Route::get('/BancosCajas', 'FinanzasController@index');
 	Route::get('/BancosCajas/agregar', 'FinanzasController@agregarBancos');
+	Route::get('/Finanzas/crear', 'FinanzasController@agregarCuenta');
 	Route::get('/Conciliaciones', 'ConciliacionesController@index');
 	Route::get('/Conciliaciones/agregar', 'ConciliacionesController@index');
 	Route::get('/CuentasCobrar', 'CuentasCobrarController@index');
