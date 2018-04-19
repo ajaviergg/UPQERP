@@ -12,6 +12,8 @@ class stockReceptionController extends Controller
     }
     public function agregarRecepcion()
     {
-    	return view('Inventarios.Recepcion.agregarRecepcion');
+      return "hola";
+    	//return view('Inventarios.Recepcion.agregarRecepcion');
     }
+
 }

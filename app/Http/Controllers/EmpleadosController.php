@@ -53,7 +53,27 @@ class EmpleadosController extends Controller
     }
     public function crearEmpleado(Request $request)
     {
+<<<<<<< HEAD
+    	$jornada = emp_jornada_tipo::all();
+    	$regimen = emp_contrato_regimen::all();
+    	$puesto = emp_puesto::all();
+    	$riesgo = emp_puesto_riesgo::all();
+    	$periodo = emp_pago_periodo::all();
+    	$contrato = emp_contrato_tipo::all();
+    	$pais = gen_domicilio_pais::all();
+    	$estado = gen_domicilio_estado::all();
+    	$Municipio = gen_domicilio_municipio::all();
+    	$banco = gen_banco::all();
+    	$departamento = gen_departamento::all();
+    	$pago = gen_pago_metodo::all();
+    	//$idestado = $request->input('Estados_id');
+
+    	//$Municipio = DB::table('gen_domicilio_municipio')->where('id_estado', $idestado)->exists();
+    	//return  $idestado;
+    	return view('Nomina.Empleados.crearEmpleado', compact('jornada','regimen','puesto','riesgo','periodo','contrato','pais','estado','Municipio', 'banco','departamento','pago'));
+=======
     	return view('Nomina.Empleados.crearEmpleado');
+>>>>>>> 4feec575a5cf0e8def232c4dce0ead9b7710ab2d
     }
     public function create(Request $request)
     {
