@@ -4,7 +4,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Formulas de Producción
+        Conceptos de Venta
+
         <small></small>
       </h1>
       {{-- <ol class="breadcrumb">
@@ -20,13 +21,34 @@
         <div class="col-xs-12">
           <div class="box">
            <br>
-            
+            <div class="input-group input-group-sm col-md-6" style="position: absolute;right: 9%;top: 12%;">
+                @if (Auth()->user()->rol_id==1)
+                   <a href="{{ url('admin/ConceptoVentas/agregar') }}" class="btn btn-primary btn-round col-md-2" style="left: 570px;" target0><i class="fa fa-2x fa-plus"></i><span class="nav-label ng-binding"><br>Nueva</span> </a>
+                @endif
+                 @if (Auth()->user()->rol_id==2)
+                    <a href="{{ url('/ConceptoVentas/agregar') }}" class="btn btn-primary btn-round col-md-2" style="left: 570px;" target0><i class="fa fa-2x fa-plus"></i><span class="nav-label ng-binding"><br>Nueva</span> </a>
+                    @endif
+              </div>
       <div class="box-body">
-        <form action="conciliaciones_submit" method="get" accept-charset="utf-8">
-          
-        
+        <form action="finanzas_submit" method="get" accept-charset="utf-8">
+          <div class="form-group col-md-2">
+                  <label for="exampleInputEmail1">Plabra clave</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                </div>
          <div class="form-group col-md-2">
-                   <label for="exampleFormControlSelect1">Tipo</label>
+                   <label for="exampleFormControlSelect1">Categoria 1</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                </div>
+                
+               
+                <div class="form-group col-md-2">
+                   <label for="exampleFormControlSelect1">Categoria 2</label>
                     <select class="form-control" id="exampleFormControlSelect1">
                       <option>1</option>
                       <option>2</option>
@@ -36,12 +58,7 @@
                     </select>
                 </div>
                 <div class="form-group col-md-2">
-                  <label for="exampleInputEmail1">Plabra clave</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
-                </div>
-               
-                <div class="form-group col-md-2">
-                   <label for="exampleFormControlSelect1">Sucursal</label>
+                   <label for="exampleFormControlSelect1">Categoria 3</label>
                     <select class="form-control" id="exampleFormControlSelect1">
                       <option>1</option>
                       <option>2</option>
@@ -53,20 +70,21 @@
                 <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Buscar</button>
               </div>
+              
                 </form>
               </div>
               <br>
            <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-6">
               <div class="box box-primary">
                 <table class="table">
                  <thead>
                    <tr>
-                    <th class="text-center">Banco</th>
-                    <th class="col-md-2 text-center">Creacion</th>
-                    <th class="col-md-4 text-center">Usuario</th>
-                    <th class="text-center">Inicio Periodo</th>
-                    <th class="text-center">Fin Periodo</th>
+                    <th class="text-center">Codigo</th>
+                    <th class="">Nombre</th>
+                    <th class="">Categoria 1</th>
+                    <th class="">Categoria 2</th>
+                    <th class="">Categoria 3</th>
                     <th class="text-right" style="right: 2%;position: absolute;">Opciones</th>
                      </tr>
                       </thead>
@@ -97,49 +115,46 @@
           </div>
           
         </div>
-        <div class="col-md-5">
+        <div class="col-md-6">
               <div class="box box-primary">
                 <div class="row ng-scope">
-        <div class="col-md-6 ">
+        <div class="col-sm-6 top">
           <h4>
             <strong class="ng-binding">
               
-              Agregar conciliación bancaria
+              Concepto Generico
             </strong>
           </h4>
-          
-          
+          <div  class="ng-binding ng-scope">
+             Unidad:1
+          </div>
+          <div class="ng-binding ng-scope">
+            <i class="fa fa-credit-card"></i> Descripcion
+          </div>
           <br>
         </div>
-        <form action="conciliaciones_submit" method="get" accept-charset="utf-8">
-          
-       
-        <div class="form-group col-md-7">
-                   <label for="exampleFormControlSelect1">Tipo</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-6">
-                   <label for="exampleFormControlSelect1">Tipo</label>
-                    <input type="date" class="form-control" id="exampleInputEmail1" placeholder="">
-                </div>
-                <div class="form-group col-md-6">
-                   <label for="exampleFormControlSelect1">Tipo</label>
-                    <input type="date" class="form-control" id="exampleInputEmail1" placeholder="">
-                </div>
-                <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Guardar</button>
-              </div>
-
-                 </form>
+        
+        </div>
       </div>
                 
-                 
+                <table class="table">
+                 <thead>
+                   <tr>
+                    <th class="text-center">Documento</th>
+                    <th class="text-center">Monto</th>
+                   
+                      </thead>
+                       <tbody>        
+                      {{-- expr --}} 
+                        <tr>
+                          <td class="text-center"></td>
+                          <td></td>
+                          <td class="td-actions text-right">             
+                                
+                            </td>
+                          </tr>      
+                        </tbody>
+                      </table>
             <!-- /.box -->
           </div>
         <!-- /.col -->
@@ -154,4 +169,3 @@
     <!-- /.content -->
   </div>  
     @endsection
-

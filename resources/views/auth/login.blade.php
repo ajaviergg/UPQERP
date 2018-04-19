@@ -3,8 +3,9 @@
 @section('content')
  
   <div class="login-box-body" style="border-radius: 12%;
-    background-color: #00c0ef8f;">
-    <p class="login-box-msg" >Iniciar sesión</p>
+    background-color: #8a6d3ba6;">
+    <p class="login-box-msg" style="
+    color:  white;">Iniciar sesión</p>
 
     <form action="{{ route('login') }}" method="post">
     {{ csrf_field() }}
@@ -29,8 +30,9 @@
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
-            <label>
-              <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Recordar
+            <label style="
+    color:  white;">
+              <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} > Recordar
             </label>
           </div>
         </div>
@@ -46,6 +48,7 @@
     
     <!-- /.social-auth-links -->
 
-    <a href="{{ route('password.request') }}"> Olvidé mi contraseña</a><br>    
+    <a href="{{ route('password.request') }}" style="
+    color:  white;"> Olvidé mi contraseña</a><br>    
 
 @endsection

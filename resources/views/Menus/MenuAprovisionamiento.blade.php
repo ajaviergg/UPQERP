@@ -1,6 +1,6 @@
 <li class="treeview">
           <a href="#"><img id="menu_Image_Inventarios" src="/img/AlmacenWhite.png" style="height:14px">
-            <span>aprovisionamiento</span>
+            <span>Inventarios</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>

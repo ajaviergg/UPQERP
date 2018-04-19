@@ -9,4 +9,8 @@ class prospectoController extends Controller
     {
     	return view('Ventas.Prospectos.prospectos');
     }
+    public function agregarprospecto()
+    {
+    	return view('Ventas.Prospectos.agregarProspecto');
+    }
 }

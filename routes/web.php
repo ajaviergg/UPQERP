@@ -73,23 +73,42 @@ Route::get('/Nueva/show', 'OrdenesController@show');
 	//termina produccion
 
 	//INICIA Ventas
+	//Concepto ventas
+	Route::get('/ConceptoVentas', 'ConceptoVentaController@MostrarVenta');
+	Route::get('/ConceptoVentas/agregar', 'ConceptoVentaController@agregarVenta');
 	//prospecto
 	Route::get('/prospecto', 'prospectoController@index');
+	Route::get('/prospecto/agregar', 'prospectoController@agregarprospecto');
 	//Cliente
 	Route::get('/Cliente', 'ClienteController@index');
+	Route::get('/Cliente/agregar', 'ClienteController@agregarCliente');
 	//cotizacion
 	Route::get('/Cotizacion', 'CotizacionController@index');
+	Route::get('/Cotizacion/agregar', 'CotizacionController@AgregarCotizacion');
 
 	Route::get('/perdidos', 'PedidosController@index');
+<<<<<<< HEAD
 
 	Route::get('/PuntoVenta', 'PuntoVentaController@index');
+=======
+	Route::get('/perdidos/agregar', 'PedidosController@agregarPedidos');
+	
+>>>>>>> 4feec575a5cf0e8def232c4dce0ead9b7710ab2d
 	//termina ventas
 
 	//INICIA finanzas
 	Route::get('/BancosCajas', 'FinanzasController@index');
+	Route::get('/BancosCajas/agregar', 'FinanzasController@agregarBancos');
+	Route::get('/Finanzas/crear', 'FinanzasController@agregarCuenta');
 	Route::get('/Conciliaciones', 'ConciliacionesController@index');
+	Route::get('/Conciliaciones/agregar', 'ConciliacionesController@index');
 	Route::get('/CuentasCobrar', 'CuentasCobrarController@index');
-
+	Route::get('/CuentasPorPagar', 'CuentasPagarController@indexCuentaPagar');
+	Route::get('/Ingresos', 'IngresosController@indexIngresos');
+	Route::get('/Ingresos/agregar', 'IngresosController@agregarIngresos');
+	Route::get('/Egresos', 'EgresosController@MostrarEgresos');
+	Route::get('/Egresos/PagosGastos', 'EgresosController@agregarPagos');
+	Route::get('/Egresos/PagosCostos', 'EgresosController@agregarGastos');
 	//INICIA INVENTARIOS
 	Route::get('/Inventarios/Lista', 'stockStoreController@BuscarAlmacen');
 	Route::get('/Inventarios/Lista/agregar', 'stockStoreController@agregarAlmacen');
@@ -108,9 +127,21 @@ Route::get('/Nueva/show', 'OrdenesController@show');
 	//Trermina aprovisionamiento
 
 	//INICIA Nomina
+	Route::get('/buscar/Empleado', 'EmpleadosController@buscar');
 	Route::get('/lista/Empleado', 'EmpleadosController@indexEmpleado');
+
 	Route::get('/agregar/Empleado', 'EmpleadosController@crearEmpleado');
 	Route::post('/agregar/Empleado', 'EmpleadosController@create');
+	Route::get('/editar/{id}/Empleado', 'EmpleadosController@editEmpleados');
+	//Route::post('/editar/{id}/Empleado', 'EmpleadosController@create');
+
+	Route::get('/agregar/Empleado/Direccion', 'EmpleadosController@indexDireccion');
+	Route::post('/agregar/Empleado/Direccion', 'EmpleadosController@agregarDireccion');
+	Route::get('/editar/Direccion', 'EmpleadosController@editDireccion');
+	//Route::post('/editar/{id}/Direccion', 'EmpleadosController@editDireccion');
+
+	Route::get('/agregar/Empleado/Contrato', 'EmpleadosController@indexContrato');
+	Route::post('/agregar/Empleado/Contrato', 'EmpleadosController@agregarContrato');
 	//Termina Nomina
 });
 //Termina rutas de administador

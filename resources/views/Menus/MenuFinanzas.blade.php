@@ -9,8 +9,8 @@
             <li><a href="{{ url('BancosCajas') }}">Banco y Cajas</a></li>
             <li><a href="{{ url('Conciliaciones') }}">Concilaciones</a></li>
             <li><a href="{{ url('CuentasCobrar') }}">Cuentas Por Cobrar</a></li>
-            <li><a href="{{ url('') }}">Cuentas Por Pagar</a></li>
-            <li><a href="{{ url('') }}">Ingresos</a></li>
-            <li><a href="{{ url('') }}">Egresos</a></li>
+            <li><a href="{{ url('CuentasPorPagar') }}">Cuentas Por Pagar</a></li>
+            <li><a href="{{ url('Ingresos') }}">Ingresos</a></li>
+            <li><a href="{{ url('Egresos') }}">Egresos</a></li>
           </ul>
         </li>
