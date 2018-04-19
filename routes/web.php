@@ -43,6 +43,7 @@ Route::middleware(['auth','admin'])->prefix('admin')->group(function (){
 
 	//Compra
 	Route::get('/producto', 'SalesController@Busquedaindex');
+    Route::post('/producto', 'SalesController@store');
 	Route::get('/producto/addproducto', 'SalesController@agregarproducto');
 	Route::get('/Compra/ListaPrecio', 'salePriceController@buscarPrecio');
 	Route::get('/Compra/Proveedores', 'saleProveedorController@buscarProvedores');
@@ -113,6 +114,7 @@ Route::middleware(['auth','admin'])->prefix('admin')->group(function (){
 //Rutas de Compras
 Route::middleware(['auth','Purchases'])->group(function (){
 	Route::get('/producto', 'SalesController@Busquedaindex');
+    Route::post('/producto', 'SalesController@store');
 	Route::get('/producto/addproducto', 'SalesController@agregarproducto');
 	Route::get('/Compra/ListaPrecio', 'salePriceController@buscarPrecio');
 	Route::get('/Compra/Proveedores', 'saleProveedorController@buscarProvedores');

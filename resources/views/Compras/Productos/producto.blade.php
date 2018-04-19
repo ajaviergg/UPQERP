@@ -22,7 +22,7 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Agregar Usuarios</h3>
+              <h3 class="box-title">Buscar Producto</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
