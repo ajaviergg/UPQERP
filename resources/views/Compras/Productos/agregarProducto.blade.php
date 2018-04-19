@@ -37,22 +37,19 @@
                             <div class="form-group col-md-6">
                                 <label for="exampleFormControlSelect1">Costeo:</label>
                                 <select class="form-control" id="exampleFormControlSelect1" name="costeo">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option>Selecciona</option>
+                                    @foreach($costeo as $costeos)
+                                        <option value="{{ $costeos['id'] }}">{{ $costeos['descripcion'] }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label for="exampleFormControlSelect1">Moneda:</label>
                                 <select class="form-control" id="exampleFormControlSelect1" name="moneda">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    @foreach($moneda as $monedas)
+                                        <option value="{{ $monedas['id'] }}">{{ $monedas['codigo'] }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-2">
@@ -62,11 +59,10 @@
                             <div class="form-group col-md-2">
                                 <label for="exampleFormControlSelect1">Tipo:</label>
                                 <select class="form-control" id="exampleFormControlSelect1" name="tipo">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option>Selecciona</option>
+                                    @foreach($productoTipo as $productoTipos)
+                                        <option value="{{ $productoTipos['id'] }}">{{ $productoTipos['descripcion'] }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-2">
@@ -100,55 +96,40 @@
                                 <input type="text" class="form-control" id="exampleInputEmail1" name="peso">
                             </div>
 
-                            {{--<div class="form-group col-md-3">--}}
-                                {{--<label for="exampleFormControlSelect1">I.V.A:</label>--}}
-                                {{--<select class="form-control" id="exampleFormControlSelect1" name="iva">--}}
-                                    {{--<option>1</option>--}}
-                                    {{--<option>2</option>--}}
-                                    {{--<option>3</option>--}}
-                                    {{--<option>4</option>--}}
-                                    {{--<option>5</option>--}}
-                                {{--</select>--}}
-                            {{--</div>--}}
-
                             <div class="form-group col-md-6">
                                 <label for="exampleFormControlSelect1">Tipo de Compras:</label>
                                 <select class="form-control" id="exampleFormControlSelect1" name="tipo_compra">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option>Selecciona</option>
+                                    @foreach($tipoCompra as $tipoCompras)
+                                        <option value="{{ $tipoCompras['id'] }}">{{ $tipoCompras['descripcion'] }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="exampleFormControlSelect1">Categorias 1:</label>
                                 <select class="form-control" id="exampleFormControlSelect1" name="categoria_n1">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option>Selecciona</option>
+                                    @foreach($cat1 as $cat11)
+                                        <option value="{{ $cat11['id'] }}">{{ $cat11['nombre'] }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="exampleFormControlSelect1">Categorias 2:</label>
                                 <select class="form-control" id="exampleFormControlSelect1" name="categoria_n2">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option>Selecciona</option>
+                                    @foreach($cat2 as $cat22)
+                                        <option value="{{ $cat22['id'] }}">{{ $cat22['nombre'] }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="exampleFormControlSelect1">Categorias 3:</label>
                                 <select class="form-control" id="exampleFormControlSelect1" name="categoria_n3">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option>Selecciona</option>
+                                    @foreach($cat3 as $cat33)
+                                        <option value="{{ $cat33['id'] }}">{{ $cat33['nombre'] }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

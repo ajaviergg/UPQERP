@@ -7,16 +7,35 @@ use App\com_producto;
 use App\com_producto_detalle;
 use App\com_producto_lista_precio;
 use App\com_producto_almacen;
+use App\gen_moneda;
+use App\com_tipo_compras;
+use App\com_costeo;
+use App\gen_categoria_n1;
+use App\gen_categoria_n2;
+use App\gen_categoria_n3;
+use App\com_producto_tipo;
 
 class SalesController extends Controller
 {
     public function Busquedaindex()
     {
-    	return view('Compras.Productos.producto');
+        $cat1 = gen_categoria_n1::all();
+        $cat2 = gen_categoria_n2::all();
+        $cat3 = gen_categoria_n3::all();
+        $productoTipo = com_producto_tipo::all();
+        $producto = com_producto::all();
+    	return view('Compras.Productos.producto', compact( 'cat1', 'cat2', 'cat3', 'productoTipo', 'producto'));
     }
     public function agregarproducto()
     {
-    	return view('Compras.Productos.agregarproducto');
+        $moneda = gen_moneda::all();
+        $tipoCompra = com_tipo_compras::all();
+        $costeo = com_costeo::all();
+        $cat1 = gen_categoria_n1::all();
+        $cat2 = gen_categoria_n2::all();
+        $cat3 = gen_categoria_n3::all();
+        $productoTipo = com_producto_tipo::all();
+    	return view('Compras.Productos.agregarproducto', compact('moneda','tipoCompra', 'costeo', 'cat1', 'cat2', 'cat3', 'productoTipo'));
     }
 
     public function store(Request $request){

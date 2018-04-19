@@ -35,41 +35,37 @@
                 <div class="form-group col-md-2">
                    <label for="exampleFormControlSelect1">Tipo</label>
                     <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                        <option>Selecciona</option>
+                        @foreach($productoTipo as $productoTipos)
+                            <option value="{{ $productoTipos['id'] }}">{{ $productoTipos['descripcion'] }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                    <label for="exampleFormControlSelect1">Categoria 1</label>
                     <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                        <option>Selecciona</option>
+                        @foreach($cat1 as $cat11)
+                            <option value="{{ $cat11['id'] }}">{{ $cat11['nombre'] }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                    <label for="exampleFormControlSelect1">Categoria 2</label>
                     <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                        <option>Selecciona</option>
+                        @foreach($cat2 as $cat22)
+                            <option value="{{ $cat22['id'] }}">{{ $cat22['nombre'] }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                    <label for="exampleFormControlSelect1">Categoria 3</label>
                     <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                        <option>Selecciona</option>
+                        @foreach($cat3 as $cat33)
+                            <option value="{{ $cat33['id'] }}">{{ $cat33['nombre'] }}</option>
+                        @endforeach
                     </select>
                 </div>
         
@@ -103,13 +99,14 @@
                     <th class="text-right" style="right: 2%;position: absolute;">Opciones</th>
                      </tr>
                       </thead>
-                       <tbody>       
+                       <tbody>
+                       @foreach($producto as $productos)
                         <tr>
+                          <td class="text-center">{{ $productos['id'] }}}</td>
+                          <td class="col-md-2 text-center">{{ $productos['codigo'] }}</td>
+                          <td class="col-md-5 text-center">{{ $productos['titulo'] }}</td>
                           <td class="text-center"></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td class="text-right"></td>
+                          <td class="text-center"></td>
                           <td class="td-actions text-right">             
                             <form action="" method="POST">
                               
@@ -121,8 +118,9 @@
                                     <i class="fa fa-times"></i>
                                   </button>    
                             </form>            
-                            </td>
-                          </tr>      
+                          </td>
+                        </tr>
+                       @endforeach
                         </tbody>
                       </table>
             <!-- /.box -->
