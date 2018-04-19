@@ -103,4 +103,4 @@
     </section>
     <!-- /.content -->
   </div>  
-  @endsection('content')
+  @endsection

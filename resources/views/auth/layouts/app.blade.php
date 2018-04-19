@@ -27,10 +27,11 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition login-page" style="background-image: url(../../images/fondo.jpg);">
+<body class="hold-transition login-page" style="background-image: url(../../images/11893732_1629740410648915_8790050323636799669_o.jpg);">
 <div class="login-box">
   <div class="login-logo">
-    <a href="{{ url('home')}}"><b>ERP</b>UPQ</a> 
+    <a href="{{ url('home')}}" style="
+    color:  white;"><b>ERP</b>UPQ</a> 
         
   </div>
 
